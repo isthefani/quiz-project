@@ -7,7 +7,7 @@ const welcome = () => {
         <p>Clique no botão abaixo para começar:</p>
         <button>Iniciar</button>
     </div>
-  )
+  );
 }
 
-export default welcome
+export default welcome;
