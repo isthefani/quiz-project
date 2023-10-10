@@ -1,15 +1,20 @@
 import './App.css'
-import Welcome from "./components/Welcome";
+import { 
+  BrowserRouter, 
+  Routes, 
+  Route } from "react-router-dom";
+import Home from './pages/Home'
+import Question from './pages/Questions'
 
 function App() {
 
   return (
-    <>
-      <div className='container'>
-        <h1>FRONT-END QUIZ</h1>
-        <Welcome />
-      </div>
-    </>
+    <BrowserRouter>
+    <Routes>
+        <Route index  element={<Home/>}/>
+        <Route path="/questions" element={<Question/>}/>
+    </Routes>
+</BrowserRouter>
   )
 }
 
