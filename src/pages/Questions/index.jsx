@@ -2,14 +2,27 @@ import React from "react";
 import quiz from "../../data/data";
 
 export default function Question(){
+
+    let geraNumber = Math.floor(Math.random() * quiz.length, 0)
+
     return(
         <>
             <h1>Quiz</h1>
-            <h2>{quiz[0].perg}</h2>
-            <p>{quiz[0].alts[0].ok}</p>
-            <p>{quiz[0].alts[1]}</p>
-            <p>{quiz[0].alts[2]}</p>
-            <p>{quiz[0].alts[3]}</p>
+            {/* {quiz.map((item) => {
+                return(
+                    <>
+                        <h2>{item.perg}</h2>
+                        <p>{item.alts[0].ok}</p>
+                    </>
+                )
+            })} */}
+
+            <h2>{quiz[geraNumber].perg}</h2>
+            <p>{quiz[geraNumber].alts[0].ok}</p>
+            <p>{quiz[geraNumber].alts[1]}</p>
+            <p>{quiz[geraNumber].alts[2]}</p>
+            <p>{quiz[geraNumber].alts[3]}</p>
+            <p>{geraNumber}</p>
         </>
     )    
 }
