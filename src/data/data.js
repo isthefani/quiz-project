@@ -5,6 +5,13 @@ const quiz = [
         "Uma laranja",
         "Um animal"
         ]
+    },
+    {id: 2, perg: "O que é Javascript?", alts: [
+        {ok: "Uma linguagem de programação."},
+        "Um feijão",
+        "Uma laranja",
+        "Um animal"
+        ]
     }
 ]
 
