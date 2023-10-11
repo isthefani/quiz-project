@@ -3,7 +3,23 @@ import quiz from "../../data/data";
 
 export default function Question(){
 
+    const pergFeitas = []
     let geraNumber = Math.floor(Math.random() * quiz.length, 0)
+
+    //Condição que verifica se a pergunta já foi feita
+    for(let valor of pergFeitas){
+        if(valor != geraNumber){
+            pergFeitas.push(geraNumber)
+        }
+        else{
+            alert("Pergunta feita!")
+        }
+    }
+
+
+    //Adiciona na lista as perguntas já feitas
+    pergFeitas.push(geraNumber)
+    
 
     return(
         <>

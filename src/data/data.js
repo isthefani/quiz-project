@@ -13,14 +13,14 @@ const quiz = [
         "Um animal"
         ]
     },
-    {id: 2, perg: "O que é algoritmo?", alts: [
+    {id: 3, perg: "O que é algoritmo?", alts: [
         {ok: "Sequencia de passos lógicos."},
         "Um feijão",
         "Uma laranja",
         "Um animal"
         ]
     },
-    {id: 2, perg: "O que é Java?", alts: [
+    {id: 4, perg: "O que é Java?", alts: [
         {ok: "Uma linguagem de programação."},
         "Um feijão",
         "Uma laranja",
