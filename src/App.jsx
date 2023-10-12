@@ -10,11 +10,11 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Routes>
+      <Routes>
         <Route index element={<Home/>}/>
         <Route path="/questions" element={<Question/>}/>
-    </Routes>
-</BrowserRouter>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
