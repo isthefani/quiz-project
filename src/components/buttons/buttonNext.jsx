@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 /////////// Style /////////////
@@ -10,6 +9,10 @@ const Button = styled.button`
   border-radius: 50px;
   margin: 10px;
   background-color: #7685EE;
+  cursor: pointer;
+  &:hover {
+    background-color: #6372e2;
+  }
 `;
 ///////////////////////////////
 

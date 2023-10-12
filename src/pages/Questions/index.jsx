@@ -1,29 +1,56 @@
-import {React, useEffect, useState} from "react";
+import {useState} from "react";
 import quiz from "../../data/data";
 import ButtonQuestion from "../../components/buttons/buttonQuestion";
-import styled from "styled-components";
 import ButtonNext from "../../components/buttons/buttonNext";
+import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
+import Header from "../../components/header/header";
+
+const resp = {}
+const respoFinais = []
 
 export default function Question(){
 
-    // const pergFeitas = []
     const [num, setNum] = useState(0)
+    const [terminado, setTerminado] = useState(false)
 
-    // useEffect(() => {
-    //     quiz.sort()
-    // }, [])
+    const confereRespostas = () => {
+        quiz.map((item) => {
+            if(item.alts[0].ok == resp[item.id]){
+                console.log("Resposta Correta")
+            }
+            else {
+                console.log("Resposta Errada")
+            }
+        })
+        setTerminado(true)
+    }
+
+    //Adiciona as respostas na lista
+    // const addResp = (resposta) => {
+    //     resp[`perg${num + 1}`] = {id: (num + 1), resp: resposta}
+    //     console.log(resp)      
+    // }
+
+    //Adiciona as respostas na lista
+    const addResp = (resposta) => {
+        resp[num + 1] = resposta
+        console.log(resp)    
+    }
 
     //Função que verifica se a resposta está certa
-    const respostaCerta = (value) => {
-        if(value == quiz[num].alts[0]){
-            console.log(num)
-        }
-        else {
-            console.log(value)
-            console.log(quiz[num].alts[0].ok)
-            alert("Resposta errada")
-        }
-    }
+    // const respostaCerta = (resposta) => {
+
+    //     if(resposta === quiz[num].alts[0].ok){
+    //         setNum(num + 1) //Passa para a próxima pergunta
+    //         alert("Resposta certa")
+    //     }
+    //     else {
+    //         // document.querySelector('#perg1').setAttribute('style', 
+    //         // "background-color: #fc5454; color: #fff; border: 2px solid #ab2a2a")
+    //         alert("Resposta errada")
+    //     }
+    //     addResp(resposta)
+    // }
 
     //Ver a próxima pergunta e a pergunta anterior
     const proximaPerg = () => {
@@ -37,47 +64,36 @@ export default function Question(){
         if(num > 0)
             setNum(num - 1);
     }
-
-    const ContPerg = styled.div`
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    `    
-
-    const BoxPerg = styled.div`
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        flex-direction: row;
-    `
-
-    const BoxCenter = styled.div`
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    `   
-    const BoxCenterVert = styled.div`
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    `   
+  
     return(
-        <>
-            <h1>Quiz</h1>
 
-            <BoxCenterVert>
-                <h2>{quiz[num].perg}</h2>     
-                <h2 style={{display: "flex", color: "#8591E8"}}>Pergunta: {num+1}/{quiz.length}</h2>     
-            </BoxCenterVert>
+        terminado == false?
+        <Container>
+            <Header/>
+            <BoxCenter>
+                <h2 style={{
+                    marginTop: 20
+                }}>{quiz[num].perg}</h2>     
+            </BoxCenter>
+
+            <BoxCenter>
+                <h2 style={{
+                    display: "flex", 
+                    color: "#8591E8", 
+                    fontSize: 16, 
+                    marginBottom: 20}}>
+                Pergunta: {num+1} / {quiz.length}
+                </h2>     
+            </BoxCenter>
 
             <ContPerg>
                 <BoxPerg>
-                    <ButtonQuestion onClick={respostaCerta} value={quiz[num].alts[1]}/>
-                    <ButtonQuestion onClick={respostaCerta} value={quiz[num].alts[2]}/>
+                    <ButtonQuestion id="perg1" onClick={() => addResp(quiz[num].alts[1])} value={quiz[num].alts[1]}/>
+                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[2])} value={quiz[num].alts[2]}/>
                 </BoxPerg>
                 <BoxPerg>
-                    <ButtonQuestion onClick={respostaCerta} value={quiz[num].alts[3]}/>
-                    <ButtonQuestion onClick={respostaCerta} value={quiz[num].alts[4]}/>
+                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[3])} value={quiz[num].alts[3]}/>
+                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[4])} value={quiz[num].alts[4]}/>
                 </BoxPerg>
             </ContPerg>
 
@@ -100,11 +116,11 @@ export default function Question(){
                                 textAlign: 'center',
                             }}>
                                 <p>{item.id}</p>
-                                <div style={{
+                                <div id="respondido" style={{
                                     border: 1,
                                     borderTopColor: '#000',
                                     height: 25,
-                                    backgroundColor: item.id == 1? '#8591E8' : '#ddd',
+                                    backgroundColor: '#ddd',
                                 }}/>
                             </div>
                         </>
@@ -116,11 +132,16 @@ export default function Question(){
                 <BoxCenter style={{marginTop: 20}}>
                     <ButtonNext 
                         style={{backgroundColor: "#2c3cb1"}}
-                        onClick={proximaPerg}  
+                        onClick={() => confereRespostas()}  
                         value={"Terminar Questionário"}/>
                 </BoxCenter>
                 :
                  ''}
-        </>
+        </Container>
+        :
+        <div>
+            <p>Terminado</p>
+            <a href="/">Voltar</a>
+        </div>
     )    
 }
