@@ -1,44 +1,81 @@
-import React from "react";
+import {React, useEffect, useState} from "react";
 import quiz from "../../data/data";
+import ButtonQuestion from "../../components/buttons/buttonQuestion";
+import styled from "styled-components";
+import ButtonNext from "../../components/buttons/buttonNext";
 
 export default function Question(){
 
     const pergFeitas = []
-    let geraNumber = Math.floor(Math.random() * quiz.length, 0)
+    const [num, setNum] = useState(0)
 
-    //Condição que verifica se a pergunta já foi feita
-    for(let valor of pergFeitas){
-        if(valor != geraNumber){
-            pergFeitas.push(geraNumber)
+    useEffect(() => {
+        quiz.sort()
+    }, [])
+
+    //Função que verifica se a resposta está certa
+    const respostaCerta = (resposta) => {
+        if(resposta == quiz[num].alts[0].ok){
+            alert("Resposta certa")
         }
-        else{
-            alert("Pergunta feita!")
+        else {
+            alert("Resposta errada")
         }
     }
 
+    //Ver a próxima pergunta e a pergunta anterior
 
-    //Adiciona na lista as perguntas já feitas
-    pergFeitas.push(geraNumber)
-    
+    const proximaPerg = () => {
+        if((num +1) < quiz.length)
+            setNum(num + 1);
+        else
+            alert("Quiz encerrado")
+    }
 
+    const anteriorPerg = () => {
+        if(num > 0)
+            setNum(num - 1);
+    }
+
+    const ContPerg = styled.div`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    `    
+
+    const BoxPerg = styled.div`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: row;
+    `
+
+    const BoxCenter = styled.div`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    `   
+        
     return(
         <>
             <h1>Quiz</h1>
-            {/* {quiz.map((item) => {
-                return(
-                    <>
-                        <h2>{item.perg}</h2>
-                        <p>{item.alts[0].ok}</p>
-                    </>
-                )
-            })} */}
+            <h2>{quiz[num].perg}</h2>     
 
-            <h2>{quiz[geraNumber].perg}</h2>
-            <p>{quiz[geraNumber].alts[0].ok}</p>
-            <p>{quiz[geraNumber].alts[1]}</p>
-            <p>{quiz[geraNumber].alts[2]}</p>
-            <p>{quiz[geraNumber].alts[3]}</p>
-            <p>{geraNumber}</p>
+            <ContPerg>
+                <BoxPerg>
+                    <ButtonQuestion onClick={respostaCerta} value={quiz[num].alts[0].ok}/>
+                    <ButtonQuestion onClick={respostaCerta} value={quiz[num].alts[1]}/>
+                </BoxPerg>
+                <BoxPerg>
+                    <ButtonQuestion onClick={respostaCerta} value={quiz[num].alts[2]}/>
+                    <ButtonQuestion onClick={respostaCerta} value={quiz[num].alts[3]}/>
+                </BoxPerg>
+            </ContPerg>
+
+            <BoxCenter>
+                <ButtonNext onClick={anteriorPerg} value={"Anterior"}/>
+                <ButtonNext onClick={proximaPerg}  value={"Próximo"}/>
+            </BoxCenter>
         </>
     )    
 }

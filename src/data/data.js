@@ -1,6 +1,6 @@
 const quiz = [
     {id: 1, perg: "O que é React?", alts: [
-        {ok: "Um framework javascript para desenvolvimento web"},
+        {ok: "Um framework javascript para desenvolvimento web, para o desenvolvimento de apps e sites"},
         "Um feijão",
         "Uma laranja",
         "Um animal"
