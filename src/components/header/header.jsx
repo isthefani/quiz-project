@@ -9,7 +9,7 @@ const HeaderStyle = styled.div`
     margin-bottom: 20px;
 `;
 
-const Link = styled.a`
+export const Link = styled.a`
     display: block;
     text-decoration: none;
     padding: 10px;

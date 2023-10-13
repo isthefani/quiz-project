@@ -4,6 +4,7 @@ import ButtonQuestion from "../../components/buttons/buttonQuestion";
 import ButtonNext from "../../components/buttons/buttonNext";
 import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
 import Header from "../../components/header/header";
+import { Link } from "../../components/header/header";
 
 const resp = {}
 const respoFinais = []
@@ -11,25 +12,33 @@ const respoFinais = []
 export default function Question(){
 
     const [num, setNum] = useState(0)
+    const [acertos, setAcertos] = useState(0)
     const [terminado, setTerminado] = useState(false)
 
     const confereRespostas = () => {
         quiz.map((item) => {
             if(item.alts[0].ok == resp[item.id]){
                 console.log("Resposta Correta")
+                setAcertos(acertos + 1)
+                respoFinais.push([
+                    `Pergunta ${item.id}`, //Número da Pergunta
+                    `${resp[item.id]}`,    //Resposta 
+                    `(Resposta Correta)`, //Avaliação da Resposta
+                    `${item.alts[0].ok}`]) //Resposta Correta
             }
             else {
                 console.log("Resposta Errada")
+                respoFinais.push([
+                    `Pergunta ${item.id}`, //Número da Pergunta
+                    `${resp[item.id]}`,    //Resposta 
+                    `(Resposta Errada)`, //Avaliação da Resposta
+                    `${item.alts[0].ok}`]) //Resposta Correta
             }
-        })
+            }
+        )
         setTerminado(true)
+        console.log(respoFinais)
     }
-
-    //Adiciona as respostas na lista
-    // const addResp = (resposta) => {
-    //     resp[`perg${num + 1}`] = {id: (num + 1), resp: resposta}
-    //     console.log(resp)      
-    // }
 
     //Adiciona as respostas na lista
     const addResp = (resposta) => {
@@ -139,9 +148,73 @@ export default function Question(){
                  ''}
         </Container>
         :
-        <div>
-            <p>Terminado</p>
-            <a href="/">Voltar</a>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            backgroundColor: "#fff",
+            padding: 30,
+            borderRadius: 40
+        }}>            
+        <BoxCenter>
+                <h1>
+                   Resultado
+                </h1>     
+            </BoxCenter>
+             <BoxCenter>
+                <h2 style={{
+                    display: "flex", 
+                    color: "#8591E8", 
+                    fontSize: 16, 
+                    marginBottom: 20}}>
+                    Acertos: {acertos} / {quiz.length}
+                </h2>     
+            </BoxCenter>
+            <BoxCenter style={{flexDirection: "row"}}>
+            {respoFinais.map((item) => {
+                return(
+                    <>
+                    <div style={{
+                        backgroundColor: "#eee",
+                        borderRadius: 20,
+                        width: 200,
+                        textAlign: 'center',
+                        margin: 15,
+                        padding: 10
+                    }}>
+                        <BoxCenter>
+                            <h2 style={{
+                                marginTop: 20
+                            }}>{item[0]}</h2>     
+                        </BoxCenter>
+                            
+                        <p>Sua resposta: {item[1]}</p> {/*Resposta Usuario */}              
+                        <p>Resposta Correta: {item[3]}</p> {/*Resposta Correta */} 
+                        {
+                            item[2] == "(Resposta Correta)"? 
+                            <p style={{
+                                color: "#33c133",
+                                fontSize: 15,
+                                fontWeight: 'bold'
+                            }}>
+                                {item[2]}
+                            </p> /*Resultado */                        
+                            :
+                            <p style={{
+                                color: "#e9352c",
+                                fontSize: 15,
+                                fontWeight: 'bold'}}>
+                                {item[2]}
+                            </p> /*Resultado */                          
+        
+                        }  
+                    </div>
+                    </>
+                )
+            })}
+            </BoxCenter>
+
+            <Link href="/">Voltar</Link>
         </div>
     )    
 }
