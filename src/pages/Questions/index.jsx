@@ -12,14 +12,14 @@ const respoFinais = []
 export default function Question(){
 
     const [num, setNum] = useState(0)
-    const [acertos, setAcertos] = useState(0)
+    let acertos = 0
     const [terminado, setTerminado] = useState(false)
 
     const confereRespostas = () => {
         quiz.map((item) => {
             if(item.alts[0].certo == resp[item.id]){
                 console.log("Resposta Correta")
-                setAcertos(acertos + 1)
+                acertos += 1
                 respoFinais.push([
                     `Pergunta ${item.id}`, //Número da Pergunta
                     `${resp[item.id]}`,    //Resposta 
