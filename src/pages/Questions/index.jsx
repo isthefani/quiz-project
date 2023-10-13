@@ -17,14 +17,14 @@ export default function Question(){
 
     const confereRespostas = () => {
         quiz.map((item) => {
-            if(item.alts[0].ok == resp[item.id]){
+            if(item.alts[0].certo == resp[item.id]){
                 console.log("Resposta Correta")
                 setAcertos(acertos + 1)
                 respoFinais.push([
                     `Pergunta ${item.id}`, //Número da Pergunta
                     `${resp[item.id]}`,    //Resposta 
                     `(Resposta Correta)`, //Avaliação da Resposta
-                    `${item.alts[0].ok}`]) //Resposta Correta
+                    `${item.alts[0].certo}`]) //Resposta Correta
             }
             else {
                 console.log("Resposta Errada")
@@ -32,7 +32,7 @@ export default function Question(){
                     `Pergunta ${item.id}`, //Número da Pergunta
                     `${resp[item.id]}`,    //Resposta 
                     `(Resposta Errada)`, //Avaliação da Resposta
-                    `${item.alts[0].ok}`]) //Resposta Correta
+                    `${item.alts[0].certo}`]) //Resposta Correta
             }
             }
         )
@@ -44,12 +44,14 @@ export default function Question(){
     const addResp = (resposta) => {
         resp[num + 1] = resposta
         console.log(resp)    
+        //proximaPerg() //Passa para a próxima pergunta
+
     }
 
     //Função que verifica se a resposta está certa
     // const respostaCerta = (resposta) => {
 
-    //     if(resposta === quiz[num].alts[0].ok){
+    //     if(resposta === quiz[num].alts[0].certo){
     //         setNum(num + 1) //Passa para a próxima pergunta
     //         alert("Resposta certa")
     //     }
@@ -63,7 +65,7 @@ export default function Question(){
 
     //Ver a próxima pergunta e a pergunta anterior
     const proximaPerg = () => {
-        if((num +1) < quiz.length)
+        if((num + 1) < quiz.length)
             setNum(num + 1);
         else
             alert("Quiz encerrado")
@@ -177,19 +179,22 @@ export default function Question(){
                     <div style={{
                         backgroundColor: "#eee",
                         borderRadius: 20,
-                        width: 200,
+                        width: 300,
                         textAlign: 'center',
                         margin: 15,
                         padding: 10
                     }}>
                         <BoxCenter>
                             <h2 style={{
-                                marginTop: 20
+                                marginTop: 20,
+                                marginBottom: 20
                             }}>{item[0]}</h2>     
                         </BoxCenter>
                             
-                        <p>Sua resposta: {item[1]}</p> {/*Resposta Usuario */}              
-                        <p>Resposta Correta: {item[3]}</p> {/*Resposta Correta */} 
+                        <p><b>Sua resposta:</b> {item[1]}</p> {/*Resposta Usuario */}
+                        <br/>              
+                        <p><b>Resposta Correta:</b> {item[3]}</p> {/*Resposta Correta */}
+                        <br/> 
                         {
                             item[2] == "(Resposta Correta)"? 
                             <p style={{
