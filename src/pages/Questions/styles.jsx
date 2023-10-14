@@ -33,3 +33,11 @@ export const Container = styled.div`
     border-radius: 40px;
     height: 85vh;
 `  
+export const Container2 = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px;
+    border-radius: 40px;
+    height: 85vh;
+`  

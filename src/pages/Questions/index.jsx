@@ -80,7 +80,7 @@ export default function Question(){
 
         terminado == false?
         <Container>
-            <Header/>
+            <Header conteudo={"Voltar ao menu"} path={"/"}/>
             <BoxCenter>
                 <h2 style={{
                     marginTop: 20

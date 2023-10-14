@@ -20,13 +20,18 @@ export const Link = styled.a`
         background-color: #ebecf4;
     }
 `
+
+const Logo = styled.img`
+    width: 165px;
+`;
+
 ///////////////////////////////
 
-export default function Header() {
+export default function Header({conteudo, path}) {
     return(
         <HeaderStyle>
-            <h1>Quiz.com</h1>
-            <Link href="/">Voltar ao início</Link>
+            <Logo src="public\logoQuiz.png"></Logo>
+            <Link href={path}>{conteudo}</Link>
         </HeaderStyle>
     )
 }
