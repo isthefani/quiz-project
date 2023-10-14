@@ -1,6 +1,8 @@
 import { useState } from "react"
 import styled, {keyframes} from "styled-components"
 
+export let indexMenu = -1
+
 const rotate = keyframes`
   to {
     transform: rotate(360deg);
@@ -8,8 +10,6 @@ const rotate = keyframes`
 `
 
 export default function Categories({title, description, logo, color, indice}){
-
-    const [indexMenu, setIndexMenu] = useState(0)
 
     const Card = styled.a`
     display: flex;
@@ -44,10 +44,16 @@ export default function Categories({title, description, logo, color, indice}){
         margin-top: 10px;
         text-align: center;
     `
-
+//  <Card onClick={() => () => {
+//     indexMenu = indice
+//     console.log(indice)
+// }}>
     return(
         <div style={{display: "block"}}>
-            <Card onClick={() => {}}>
+            <Card onClick={() => {
+                indexMenu = indice
+                console.log(indexMenu)
+                }}>
                 <IconCard>{logo}</IconCard>
                 <TitleCard>{title}</TitleCard>
                 <DescriptionCard>{description}</DescriptionCard>

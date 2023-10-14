@@ -22,22 +22,30 @@ const Home = () => {
               title={"React"} 
               description={"Biblioteca front-end para criar interfaces de usuário em páginas web."} 
               logo={<SiReact/>}
-              color={"#57b0ff"}/>
+              color={"#57b0ff"}
+              indice={0}
+              />
             <Categories 
               title={"Javascript"} 
               description={"Linguagem de programação interpretada estruturada, de script em alto nível"} 
               logo={<SiJavascript/>}
-              color={"#fbff14"}/>
+              color={"#fbff14"}
+              indice={1}
+              />
             <Categories 
               title={"Html"} 
               description={"Área da programação que se dedica a criar a parte visual e interativa de um site"} 
               logo={<SiHtml5/>}
-              color={"#ff2f1c"}/>
+              color={"#ff2f1c"}
+              indice={2}
+              />
             <Categories 
               title={"Css"} 
               description={"Mecanismo para adicionar estilos a uma página web, diretamente nas tags HTML"} 
               logo={<SiCss3/>}
-              color={"#0072d6"}/>
+              color={"#0072d6"}
+              indice={3}
+              />
             {/* <Categories title={"Http"} description={"Protocolo de comunicação utilizado para sistemas de informação de hipermídia"} logo={<MdHttp/>}/> */}
           </BoxCenter>
 

@@ -5,6 +5,7 @@ import ButtonNext from "../../components/buttons/buttonNext";
 import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
 import Header from "../../components/header/header";
 import { Link } from "../../components/header/header";
+import { indexMenu } from "../../components/divHomeCategory/categories";
 
 const resp = {}
 const respoFinais = []
@@ -93,7 +94,8 @@ export default function Question(){
                     color: "#8591E8", 
                     fontSize: 16, 
                     marginBottom: 20}}>
-                Pergunta: {num+1} / {quiz.length}
+                Pergunta: {num+1} / {quiz.length} - (indexMenu = {indexMenu})
+
                 </h2>     
             </BoxCenter>
 
