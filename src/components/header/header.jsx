@@ -30,7 +30,7 @@ const Logo = styled.img`
 export default function Header({conteudo, path}) {
     return(
         <HeaderStyle>
-            <Logo src="public\logoQuiz.png"></Logo>
+            <Logo src="/logoQuiz.png"></Logo>
             <Link href={path}>{conteudo}</Link>
         </HeaderStyle>
     )

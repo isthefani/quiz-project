@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "../../components/header/header";
 import {BoxCenter, Container, Container2 } from "../Questions/styles";
 import Categories from '../../components/divHomeCategory/categories';
@@ -14,7 +14,10 @@ const Home = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState(-1);
 
   const CardClick = (index) => {
-    setSelectedCardIndex(index);
+    if(index == index)
+      setSelectedCardIndex(index);
+    else
+      setSelectedCardIndex(-1);
   };
 
   return (
@@ -68,7 +71,11 @@ const Home = () => {
           </BoxCenter>
 
           <BoxCenter style={{margin: 20}}>
+            {selectedCardIndex != -1?
             <ButtonHome value={"Iniciar Quiz"} href={"/questions"}/>
+            :
+            ""
+            }
           </BoxCenter>
 
         </Container2>

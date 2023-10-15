@@ -19,8 +19,8 @@ export default function Categories({title, description, logo, color, selected, o
     height: 13rem;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-color: ${props => props.selected ? props.color : "#ddd"};
-    color: ${props => (props.selected ? (color === "#fbff14"? "#000" :"#fff") : "#000")};
+    background-color: ${selected ? color : "#ddd"};
+    color: ${(selected ? (color === "#fbff14"? "#000" :"#fff") : "#000")};
     margin: 50px 10px 0px 10px;
     padding: 12px;
     cursor: pointer;
