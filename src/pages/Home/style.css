@@ -1,0 +1,4 @@
+.selected-card {
+    transform: scale(0.92);
+    transition: 0.1s;
+  }
