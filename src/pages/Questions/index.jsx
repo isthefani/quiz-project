@@ -20,7 +20,6 @@ export default function Question(){
     const handleOptionClick = (optionIndex) => {
         setSelectedOption(optionIndex);
         addResp(quiz[num].alts[optionIndex]);
-        
         };
 
     const confereRespostas = () => {
