@@ -16,6 +16,11 @@ export default function Question(){
     const [num, setNum] = useState(0)
     const [acertos, setAcertos] = useState(0)
     const [terminado, setTerminado] = useState(false)
+    const [selectedOption, setSelectedOption] = useState(-1);
+    const handleOptionClick = (optionIndex) => {
+        setSelectedOption(optionIndex);
+        addResp(quiz[num].alts[optionIndex]);
+        };
 
     const confereRespostas = () => {
         quiz.map((item) => {
@@ -54,8 +59,10 @@ export default function Question(){
 
     //Ver a próxima pergunta e a pergunta anterior
     const proximaPerg = () => {
-        if((num + 1) < quiz.length)
+        if((num + 1) < quiz.length) {
             setNum(num + 1);
+            setSelectedOption(-1);
+        }
         else
             alert("Quiz encerrado")
     }
@@ -93,12 +100,20 @@ export default function Question(){
 
             <ContPerg>
                 <BoxPerg>
-                    <ButtonQuestion id="perg1" onClick={() => addResp(quiz[num].alts[1])} value={quiz[num].alts[1]}/>
-                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[2])} value={quiz[num].alts[2]}/>
+                    <ButtonQuestion id="perg1" onClick={() => handleOptionClick(1)} style={{
+                        backgroundColor: selectedOption === 1 ? "#8591E8" : "#eee",
+                    }} value={quiz[num].alts[1]}/>
+                    <ButtonQuestion onClick={() => handleOptionClick(2)} style={{
+                        backgroundColor: selectedOption === 2 ? "#8591E8" : "#eee",
+                    }}  value={quiz[num].alts[2]}/>
                 </BoxPerg>
                 <BoxPerg>
-                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[3])} value={quiz[num].alts[3]}/>
-                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[4])} value={quiz[num].alts[4]}/>
+                    <ButtonQuestion onClick={() => handleOptionClick(3)} style={{
+                        backgroundColor: selectedOption === 3 ? "#8591E8" : "#eee",
+                    }}  value={quiz[num].alts[3]}/>
+                    <ButtonQuestion onClick={() => handleOptionClick(4)} style={{
+                        backgroundColor: selectedOption === 4 ? "#8591E8" : "#eee",
+                    }}  value={quiz[num].alts[4]}/>
                 </BoxPerg>
             </ContPerg>
 
