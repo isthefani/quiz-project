@@ -9,6 +9,8 @@ import { SiCss3 } from "react-icons/si";
 import ButtonHome from '../../components/buttons/buttonHome';
 import './style.css'
 
+export const indexMenu = [0]
+
 const Home = () => {
 
   const [selectedCardIndex, setSelectedCardIndex] = useState(-1);
@@ -27,7 +29,7 @@ const Home = () => {
         <Header conteudo={"Sobre"}/>
 
         <Container2>
-          <h3>Escolha uma das opções abaixo e veja quantas perguntas você consegue responder corretamente entre 6 perguntas</h3>
+          <h3>Escolha uma das opções abaixo e veja quantas perguntas você consegue responder corretamente entre 6 alternativas:</h3>
           
           <BoxCenter style={{marginTop: -20}}>
             <Categories 
@@ -72,7 +74,7 @@ const Home = () => {
 
           <BoxCenter style={{margin: 20}}>
             {selectedCardIndex != -1?
-            <ButtonHome value={"Iniciar Quiz"} href={"/questions"}/>
+            <ButtonHome onClick={() => indexMenu[0] = 1} value={"Iniciar Quiz"} href={"/questions"}/>
             :
             ""
             }

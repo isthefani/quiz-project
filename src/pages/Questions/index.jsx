@@ -5,26 +5,29 @@ import ButtonNext from "../../components/buttons/buttonNext";
 import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
 import Header from "../../components/header/header";
 import { Link } from "../../components/header/header";
+import { indexMenu } from "../Home";
 
 const resp = {}
 const respoFinais = []
+let corretos = 0
 
 export default function Question(){
 
     const [num, setNum] = useState(0)
-    let acertos = 0
+    const [acertos, setAcertos] = useState(0)
     const [terminado, setTerminado] = useState(false)
 
     const confereRespostas = () => {
         quiz.map((item) => {
             if(item.alts[0].certo == resp[item.id]){
                 console.log("Resposta Correta")
-                acertos += 1
                 respoFinais.push([
                     `Pergunta ${item.id}`, //Número da Pergunta
                     `${resp[item.id]}`,    //Resposta 
                     `(Resposta Correta)`, //Avaliação da Resposta
                     `${item.alts[0].certo}`]) //Resposta Correta
+                    corretos += 1
+
             }
             else {
                 console.log("Resposta Errada")
@@ -36,6 +39,7 @@ export default function Question(){
             }
             }
         )
+        setAcertos(corretos)
         setTerminado(true)
         console.log(respoFinais)
     }
@@ -47,21 +51,6 @@ export default function Question(){
         //proximaPerg() //Passa para a próxima pergunta
 
     }
-
-    //Função que verifica se a resposta está certa
-    // const respostaCerta = (resposta) => {
-
-    //     if(resposta === quiz[num].alts[0].certo){
-    //         setNum(num + 1) //Passa para a próxima pergunta
-    //         alert("Resposta certa")
-    //     }
-    //     else {
-    //         // document.querySelector('#perg1').setAttribute('style', 
-    //         // "background-color: #fc5454; color: #fff; border: 2px solid #ab2a2a")
-    //         alert("Resposta errada")
-    //     }
-    //     addResp(resposta)
-    // }
 
     //Ver a próxima pergunta e a pergunta anterior
     const proximaPerg = () => {
@@ -85,6 +74,11 @@ export default function Question(){
                 <h2 style={{
                     marginTop: 20
                 }}>{quiz[num].perg}</h2>     
+
+                <h2 style={{
+                    marginTop: 20
+                }}>{indexMenu}</h2>     
+
             </BoxCenter>
 
             <BoxCenter>
