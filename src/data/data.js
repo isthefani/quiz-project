@@ -5,7 +5,7 @@ const quiz =
     
     [
         {id: 1, perg: "Qual é o operador lógico utilizado para negar uma expressão em JavaScript?", alts: [
-            {certo: "not"},
+            {certo: "!"},
             "not",
             "!",
             "&&",
@@ -44,11 +44,11 @@ const quiz =
             `"2 + 2"`
             ]
         },
-        {id: 6, perg: "O que é hoisting em JavaScript", alts: [
-            {certo: "processo de elevar uma variável ou função para o topo do escopo em que foi declarada"},
+        {id: 6, perg: "O que é hoisting em JavaScript?", alts: [
+            {certo: "Processo de elevar uma variável ou função para o topo do escopo em que foi declarada"},
             "O processo de mover um elemento HTML para cima na hierarquia do DOM",
-            "processo de elevar uma variável ou função para o topo do escopo em que foi declarada",
-            "processo de elevar uma variável ou função para o topo do escopo em que foi declarada",
+            "Processo de elevar uma variável ou função para o topo do escopo em que foi declarada",
+            "Hoisting é o processo de executar o código JavaScript em diferentes ambientes",
             "A capacidade de executar código JavaScript em diferentes ambientes",
             ]
         },
