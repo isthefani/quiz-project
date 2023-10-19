@@ -73,7 +73,7 @@ export default function Question(){
         if(num > 0) {
             setNum(num - 1);
         }
-    }
+    } 
   
     return(
 
@@ -135,7 +135,7 @@ export default function Question(){
             </BoxCenter>
 
             <BoxCenter>
-                {quiz.map((item) => {
+                {quiz.map((item, index) => {
                     return(
                         <>
                             <div style={{
@@ -152,7 +152,7 @@ export default function Question(){
                                     border: 1,
                                     borderTopColor: '#000',
                                     height: 25,
-                                    backgroundColor: '#ddd',
+                                    backgroundColor: selectedOptions[index] !== -1 ? "#8591E8" : "#ddd",
                                 }}/>
                             </div>
                         </>
