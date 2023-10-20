@@ -1,20 +1,28 @@
 import {useState} from "react";
-import quiz from "../../data/data2";
-import ButtonQuestion from "../../components/buttons/buttonQuestion";
-import ButtonNext from "../../components/buttons/buttonNext";
+import quiz from "../../../data/dataJs";
+import ButtonQuestion from "../../../components/buttons/buttonQuestion";
+import ButtonNext from "../../../components/buttons/buttonNext";
 import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
-import Header from "../../components/header/header";
-import { Link } from "../../components/header/header";
+import Header from "../../../components/header/header";
+import { Link } from "../../../components/header/header";
 
 const resp = {}
 const respoFinais = []
 let corretos = 0
 
-export default function Question2(){
+export default function QuestJs(){
 
     const [num, setNum] = useState(0)
     const [acertos, setAcertos] = useState(0)
     const [terminado, setTerminado] = useState(false)
+    const [selectedOptions, setSelectedOptions] = useState(new Array(quiz.length).fill(-1));
+    const handleOptionClick = (optionIndex) => {
+        const updatedSelectedOptions = [...selectedOptions];
+        updatedSelectedOptions[num] = optionIndex;
+        setSelectedOptions(updatedSelectedOptions);
+        addResp(quiz[num].alts[optionIndex]);
+      };
+      
 
     const confereRespostas = () => {
         quiz.map((item) => {
@@ -53,16 +61,18 @@ export default function Question2(){
 
     //Ver a próxima pergunta e a pergunta anterior
     const proximaPerg = () => {
-        if((num + 1) < quiz.length)
+        if((num + 1) < quiz.length) {
             setNum(num + 1);
+        }
         else
             alert("Quiz encerrado")
     }
 
     const anteriorPerg = () => {
-        if(num > 0)
+        if(num > 0) {
             setNum(num - 1);
-    }
+        }
+    } 
   
     return(
 
@@ -72,7 +82,8 @@ export default function Question2(){
             <BoxCenter>
                 <h2 style={{
                     marginTop: 20
-                }}>{quiz[num].perg}</h2>     
+                }}>{quiz[num].perg}</h2>      
+
             </BoxCenter>
 
             <BoxCenter>
@@ -87,22 +98,44 @@ export default function Question2(){
 
             <ContPerg>
                 <BoxPerg>
-                    <ButtonQuestion id="perg1" onClick={() => addResp(quiz[num].alts[1])} value={quiz[num].alts[1]}/>
-                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[2])} value={quiz[num].alts[2]}/>
+                    <ButtonQuestion id="perg1" onClick={() => handleOptionClick(1)} style={{
+                        backgroundColor: selectedOptions[num] === 1 ? "#8591E8" : selectedOptions[num] === -1 ? "#eee" : "#eee",
+                        color: selectedOptions[num] === 1 ? "#fff" : selectedOptions[num] === -1 ? "#000" : "#000",
+                        fontWeight: selectedOptions[num] === 1 ? 500 : selectedOptions[num] === -1 ? "" : "",
+                    }} value={quiz[num].alts[1]}/>
+                    <ButtonQuestion onClick={() => handleOptionClick(2)} style={{
+                        backgroundColor: selectedOptions[num] === 2 ? "#8591E8" : selectedOptions[num] === -2 ? "#eee" : "#eee",
+                        color: selectedOptions[num] === 2 ? "#fff" : selectedOptions[num] === -2 ? "#000" : "#000",
+                        fontWeight: selectedOptions[num] === 2 ? 500 : selectedOptions[num] === -2 ? "" : "",
+                    }}  value={quiz[num].alts[2]}/>
                 </BoxPerg>
                 <BoxPerg>
-                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[3])} value={quiz[num].alts[3]}/>
-                    <ButtonQuestion onClick={() => addResp(quiz[num].alts[4])} value={quiz[num].alts[4]}/>
+                    <ButtonQuestion onClick={() => handleOptionClick(3)} style={{
+                        backgroundColor: selectedOptions[num] === 3 ? "#8591E8" : selectedOptions[num] === -3 ? "#eee" : "#eee",
+                        color: selectedOptions[num] === 3 ? "#fff" : selectedOptions[num] === -3 ? "#000" : "#000",
+                        fontWeight: selectedOptions[num] === 3 ? 500 : selectedOptions[num] === -3 ? "" : "",
+                    }}  value={quiz[num].alts[3]}/>
+                    <ButtonQuestion onClick={() => handleOptionClick(4)} style={{
+                        backgroundColor: selectedOptions[num] === 4 ? "#8591E8" : selectedOptions[num] === -4 ? "#eee" : "#eee",
+                        color: selectedOptions[num] === 4 ? "#fff" : selectedOptions[num] === -4 ? "#000" : "#000",
+                        fontWeight: selectedOptions[num] === 4 ? 500 : selectedOptions[num] === -4 ? "" : "",
+                    }}  value={quiz[num].alts[4]}/>
                 </BoxPerg>
             </ContPerg>
 
             <BoxCenter>
+                {(num + 1) > 1 ?                 
                 <ButtonNext onClick={anteriorPerg} value={"Anterior"}/>
+                :
+                ""}
+                {(quiz.length != (num + 1)) ?                 
                 <ButtonNext onClick={proximaPerg}  value={"Próximo"}/>
+                :
+                ""}
             </BoxCenter>
 
             <BoxCenter>
-                {quiz.map((item) => {
+                {quiz.map((item, index) => {
                     return(
                         <>
                             <div style={{
@@ -119,7 +152,7 @@ export default function Question2(){
                                     border: 1,
                                     borderTopColor: '#000',
                                     height: 25,
-                                    backgroundColor: '#ddd',
+                                    backgroundColor: selectedOptions[index] !== -1 ? "#8591E8" : "#ddd",
                                 }}/>
                             </div>
                         </>
@@ -127,7 +160,7 @@ export default function Question2(){
                 })}
             </BoxCenter>
             
-            {(num + 1) == quiz.length? 
+            {(num + 1) == quiz.length ? 
                 <BoxCenter style={{marginTop: 20}}>
                     <ButtonNext 
                         style={{backgroundColor: "#2c3cb1"}}
@@ -145,7 +178,15 @@ export default function Question2(){
             backgroundColor: "#fff",
             padding: 30,
             borderRadius: 40
-        }}>            
+        }}>   
+
+        {/* <BoxCenter>
+            <img style={{
+                 width: 165,
+                 marginBottom: 20
+            }} src="public/logoQuiz.png"/>
+        </BoxCenter> */}
+
         <BoxCenter>
                 <h1>
                    Resultado
@@ -165,16 +206,21 @@ export default function Question2(){
                 return(
                     <>
                     <div style={{
-                        backgroundColor: "#eee",
+                        backgroundColor: "#d0d4f9",
                         borderRadius: 20,
                         width: 300,
                         textAlign: 'center',
                         margin: 15,
-                        padding: 10
+                        paddingTop: 20,
+                        paddingBottom: 20,
+                        paddingLeft: 10,
+                        paddingRight: 10,
+                        borderWidth: 1,
+                        borderColor: "#8591E8"
                     }}>
+
                         <BoxCenter>
                             <h2 style={{
-                                marginTop: 20,
                                 marginBottom: 20
                             }}>{item[0]}</h2>     
                         </BoxCenter>
