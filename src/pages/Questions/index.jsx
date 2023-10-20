@@ -161,7 +161,7 @@ export default function Question(){
                 })}
             </BoxCenter>
             
-            {(num + 1) == quiz.length ? 
+            {(num + 1) == quiz.length && selectedOptions.every(optionIndex => optionIndex !== -1) ? 
                 <BoxCenter style={{marginTop: 20}}>
                     <ButtonNext 
                         style={{backgroundColor: "#2c3cb1"}}
