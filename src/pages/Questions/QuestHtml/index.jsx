@@ -1,16 +1,16 @@
 import {useState} from "react";
-import quiz from "../../data/data2";
-import ButtonQuestion from "../../components/buttons/buttonQuestion";
-import ButtonNext from "../../components/buttons/buttonNext";
+import quiz from "../../../data/dataHtml";
+import ButtonQuestion from "../../../components/buttons/buttonQuestion";
+import ButtonNext from "../../../components/buttons/buttonNext";
 import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
-import Header from "../../components/header/header";
-import { Link } from "../../components/header/header";
+import Header from "../../../components/header/header";
+import { Link } from "../../../components/header/header";
 
 const resp = {}
 const respoFinais = []
 let corretos = 0
 
-export default function Question2(){
+export default function QuestHtml(){
 
     const [num, setNum] = useState(0)
     const [acertos, setAcertos] = useState(0)

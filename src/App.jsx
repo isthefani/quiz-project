@@ -4,7 +4,8 @@ import {
   Routes, 
   Route } from "react-router-dom";
 import Home from './pages/Home'
-import Question from './pages/Questions'
+import QuestJs from './pages/Questions/QuestJs';
+import QuestHtml from './pages/Questions/QuestHtml';
 
 function App() {
 
@@ -12,7 +13,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Home/>}/>
-        <Route path="/questions" element={<Question/>}/>
+        <Route path="/questionsJs" element={<QuestJs/>}/>
+        <Route path="/questionsHtml" element={<QuestHtml/>}/>
+        {/* <Route path="/questionsHtml" element={<Question/>}/>
+        <Route path="/questionsHtml" element={<Question/>}/> */}
       </Routes>
     </BrowserRouter>
   )
