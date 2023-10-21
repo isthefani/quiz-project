@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "../../components/header/header";
-import {BoxCenter, Container, Container2 } from "../Questions/QuestJs/styles";
+import {BoxCenter, Container, Container2 } from "../../components/question/styles";
 import Categories from '../../components/divHomeCategory/categories';
 import { SiReact } from "react-icons/si";
 import { SiJavascript } from "react-icons/si";
@@ -74,7 +74,13 @@ const Home = () => {
 
           <BoxCenter style={{margin: 20}}>
             {selectedCardIndex != -1?
-            <ButtonHome onClick={() => indexMenu[0] = 1} value={"Iniciar Quiz"} href={"/questionsJs"}/>
+            <ButtonHome onClick={() => indexMenu[0] = 1} value={"Iniciar Quiz"} href={
+              selectedCardIndex == 1? "/questionsReact" :
+              selectedCardIndex == 2? "/questionsHtml" :
+              selectedCardIndex == 3? "/questionsJs" :
+              selectedCardIndex == 4? "/questionsJs" :
+              ""
+            }/>
             :
             ""
             }

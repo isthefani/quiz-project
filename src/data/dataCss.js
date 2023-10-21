@@ -1,4 +1,3 @@
-// JavaScript
 const quiz = 
 
     [

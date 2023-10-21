@@ -2,7 +2,7 @@ import {useState} from "react";
 import quiz from "../../../data/dataHtml";
 import ButtonQuestion from "../../../components/buttons/buttonQuestion";
 import ButtonNext from "../../../components/buttons/buttonNext";
-import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
+import { ContPerg, BoxCenter, BoxPerg, Container } from "../../../components/question/styles";
 import Header from "../../../components/header/header";
 import { Link } from "../../../components/header/header";
 
