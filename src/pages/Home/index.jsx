@@ -29,7 +29,7 @@ const Home = () => {
         <Header conteudo={"Sobre"}/>
 
         <Container2>
-          <h3>Escolha uma das opções abaixo e veja quantas perguntas você consegue responder corretamente entre 6 alternativas:</h3>
+          <h3 style={{textAlign: 'justify'}}>Escolha uma das opções abaixo e veja quantas perguntas você consegue responder corretamente entre 6 alternativas:</h3>
           
           <BoxCenter style={{marginTop: -20}}>
             <Categories 
