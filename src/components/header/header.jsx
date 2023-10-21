@@ -12,7 +12,7 @@ const HeaderStyle = styled.div`
 export const Link = styled.a`
     display: block;
     text-decoration: none;
-    padding: 10px;
+    padding: 10px; 
     border-radius: 10px;
     border: 2px solid #7685EE;
     color: #4150c7;

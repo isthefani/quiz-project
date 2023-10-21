@@ -21,7 +21,7 @@ function App() {
         <Route path="/questionsCss" element={<QuestCss/>}/>  
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

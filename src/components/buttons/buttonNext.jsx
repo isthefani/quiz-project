@@ -4,10 +4,10 @@ import styled from "styled-components";
 const Button = styled.button`
   color: #fff;
   font-size: 1rem;
-  padding: .5rem 1rem;
+  padding: .5rem 1rem; /*--MUDAR*/
   border: none;
   border-radius: 50px;
-  margin: 10px;
+  margin: 10px; /*--MUDAR*/
   background-color: #7685EE;
   cursor: pointer;
   &:hover {
