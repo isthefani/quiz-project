@@ -202,7 +202,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                 return(
                     <>
                     <div style={{
-                        backgroundColor: "#d0d4f9",
+                        backgroundColor: "#eee",
                         borderRadius: 20,
                         width: 300,
                         textAlign: 'center',
@@ -211,7 +211,8 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                         paddingBottom: 20,
                         paddingLeft: 10,
                         paddingRight: 10,
-                        borderWidth: 1,
+                        borderStyle: "solid",
+                        borderWidth: 2,
                         borderColor: "#8591E8"
                     }}>
 
@@ -249,7 +250,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
             })}
             </BoxCenter>
 
-            <Link href="/">Voltar</Link>
+            <Link href="/" style={{color: "#fff", backgroundColor: "#8591E8"}}>Voltar</Link>
         </div> )
     )    
 }
