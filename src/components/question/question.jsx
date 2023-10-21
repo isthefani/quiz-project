@@ -136,7 +136,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                             <div style={{
                                 backgroundColor: "#eee",
                                 color: "#8a8a8a",
-                                marginLeft: 24,
+                                marginLeft: 20,
                                 borderRadius: 5,
                                 marginTop: 20,
                                 width: 35,
@@ -159,7 +159,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
             (selectedOptions.every(optionIndex => optionIndex !== -1)) ? (
                 <BoxCenter style={{marginTop: 20}}>
                     <ButtonNext 
-                        style={{backgroundColor: "#2c3cb1"}}
+                        style={{backgroundColor: "#5363da"}}
                         onClick={() => confereRespostas()}  
                         value={"Terminar Questionário"}/>
                 </BoxCenter>
@@ -211,7 +211,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                         paddingBottom: 20,
                         paddingLeft: 10,
                         paddingRight: 10,
-                        borderStyle: "solid",
+                        borderStyle: "groove",
                         borderWidth: 2,
                         borderColor: "#8591E8"
                     }}>
@@ -250,7 +250,15 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
             })}
             </BoxCenter>
 
-            <Link href="/" style={{color: "#fff", backgroundColor: "#8591E8"}}>Voltar</Link>
+            <Link href="/" style={{
+                color: "#fff", 
+                backgroundColor: "#5161d4", 
+                border: "none",
+                paddingLeft: 30,
+                paddingRight: 30
+            
+            
+            }}>Voltar</Link>
         </div> )
     )    
 }
