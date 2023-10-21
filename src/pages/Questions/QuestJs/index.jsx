@@ -160,7 +160,7 @@ export default function QuestJs(){
                 })}
             </BoxCenter>
             
-            {/*(num + 1) == quiz.length && selectedOptions.every(optionIndex => optionIndex !== -1) ? */
+            {/*(num + 1) == quiz.length && selectedOptions.every(optionIndex => optionIndex !== -1) ? BOTÃO APARECE SÓ NO FINAL */
             (selectedOptions.every(optionIndex => optionIndex !== -1)) ? (
                 <BoxCenter style={{marginTop: 20}}>
                     <ButtonNext 
