@@ -75,10 +75,10 @@ const Home = () => {
           <BoxCenter style={{margin: 20}}>
             {selectedCardIndex != -1?
             <ButtonHome onClick={() => indexMenu[0] = 1} value={"Iniciar Quiz"} href={
-              selectedCardIndex == 1? "/questionsReact" :
+              selectedCardIndex == 0? "/questionsReact" :
+              selectedCardIndex == 1? "/questionsJs" :
               selectedCardIndex == 2? "/questionsHtml" :
-              selectedCardIndex == 3? "/questionsJs" :
-              selectedCardIndex == 4? "/questionsJs" :
+              selectedCardIndex == 3? "/questionsCss" :
               ""
             }/>
             :

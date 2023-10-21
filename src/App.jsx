@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import QuestJs from './pages/Questions/QuestJs';
 import QuestHtml from './pages/Questions/QuestHtml';
 import QuestReact from './pages/Questions/QuestReact';
+import QuestCss from './pages/Questions/QuestCss';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
         <Route path="/questionsJs" element={<QuestJs/>}/>
         <Route path="/questionsHtml" element={<QuestHtml/>}/>
         <Route path="/questionsReact" element={<QuestReact/>}/>
-        {/* <Route path="/questionsHtml" element={<Question/>}/>  */}
+        <Route path="/questionsCss" element={<QuestCss/>}/>  
       </Routes>
     </BrowserRouter>
   )
