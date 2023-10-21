@@ -86,7 +86,8 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                     display: "flex", 
                     color: "#8591E8", 
                     fontSize: 16, 
-                    marginBottom: 20}}>
+                    marginBottom: 20,
+                    textAlign: 'justify'}}>
                 Pergunta: {num+1} / {quiz.length}
                 </h2>     
             </BoxCenter>
