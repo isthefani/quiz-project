@@ -76,7 +76,7 @@ export default function QuestJs(){
   
     return(
 
-        terminado == false?
+        terminado == false? (
         <Container>
             <Header conteudo={"Voltar ao menu"} path={"/"}/>
             <BoxCenter>
@@ -160,17 +160,18 @@ export default function QuestJs(){
                 })}
             </BoxCenter>
             
-            {(num + 1) == quiz.length && selectedOptions.every(optionIndex => optionIndex !== -1) ? 
+            {/*(num + 1) == quiz.length && selectedOptions.every(optionIndex => optionIndex !== -1) ? */
+            (selectedOptions.every(optionIndex => optionIndex !== -1)) ? (
                 <BoxCenter style={{marginTop: 20}}>
                     <ButtonNext 
                         style={{backgroundColor: "#2c3cb1"}}
                         onClick={() => confereRespostas()}  
                         value={"Terminar Questionário"}/>
                 </BoxCenter>
-                :
-                 ''}
+                ) : (
+                 '')}
         </Container>
-        :
+        ) : (
         <div style={{
             display: "flex",
             flexDirection: "column",
@@ -254,6 +255,6 @@ export default function QuestJs(){
             </BoxCenter>
 
             <Link href="/">Voltar</Link>
-        </div>
+        </div> )
     )    
 }
