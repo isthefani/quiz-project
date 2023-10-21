@@ -32,6 +32,10 @@ export const Container = styled.div`
     padding: 30px; /*--MUDAR*/
     border-radius: 40px;
     height: 85vh; /*--MUDAR*/
+
+    @media (max-width: 1236.5px) {
+        height: unset;
+    }
 `  
 export const Container2 = styled.div`
     display: flex;
@@ -40,4 +44,8 @@ export const Container2 = styled.div`
     padding: 50px 0px; /*--MUDAR*/
     border-radius: 40px;
     height: 85vh; /*--MUDAR*/
+    @media (max-width: 1236.5px) {
+        height: unset;
+        padding: 25px 0px 0px 0px;
+    }
 `  
