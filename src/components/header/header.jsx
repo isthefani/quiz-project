@@ -10,7 +10,7 @@ const HeaderStyle = styled.div`
 
     @media (max-width: 440px) {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
     }
 `;
 
