@@ -18,7 +18,11 @@ export const BoxCenter = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-`   
+
+    @media (min-width: 952px) and (max-width: 1236px) {
+        width: 70%;
+    }
+`    
 export const BoxCenterVert = styled.div`
     display: flex;
     justify-content: center;
@@ -49,10 +53,14 @@ export const Container2 = styled.div`
         height: unset;
         padding: 25px 0px;
     }
-
-    @media (max-width 770px) {
+    @media (min-width: 952px) and (max-width: 1236px) {
+        padding: 0px;
+    }
+    @media (max-width 952px) {
         padding: unset;
     }
+
+
 `  
 export const Titulo = styled.h3`
     text-align: justify;
