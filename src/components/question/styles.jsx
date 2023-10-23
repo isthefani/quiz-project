@@ -37,7 +37,7 @@ export const Container = styled.div`
     border-radius: 40px;
     height: 85vh; /*--MUDAR*/
 
-    @media (max-width: 1236px) {
+    @media (max-width: 1100px) {
         height: unset;
     }
 `  
