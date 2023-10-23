@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ButtonQuestion from "../buttons/buttonQuestion";
 import ButtonNext from "../buttons/buttonNext";
-import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
+import { ContPerg, BoxCenter, BoxPerg, Container, BoxCenterResp } from "./styles";
 import Header from "../header/header";
 import { Link } from "../header/header";
 
@@ -201,7 +201,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                     Acertos: {acertos} / {quiz.length}
                 </h2>     
             </BoxCenter>
-            <BoxCenter style={{flexDirection: "row"}}>
+            <BoxCenterResp style={{flexDirection: "row"}}>
             {respoFinais.map((item) => {
                 return(
                     <>
@@ -255,7 +255,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                     </>
                 )
             })}
-            </BoxCenter>
+            </BoxCenterResp>
 
             <Link href="/" style={{
                 color: "#fff", 

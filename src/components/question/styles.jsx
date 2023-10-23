@@ -27,7 +27,13 @@ export const BoxCenterVert = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-`   
+`
+//evitar erros//
+export const BoxCenterResp = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`    
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
