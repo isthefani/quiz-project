@@ -51,16 +51,8 @@ export const Container2 = styled.div`
 
     @media (max-width: 1236px) {
         height: unset;
-        padding: 25px 0px;
-    }
-    @media (min-width: 952px) and (max-width: 1236px) {
-        padding: 0px;
-    }
-    @media (max-width 952px) {
         padding: unset;
     }
-
-
 `  
 export const Titulo = styled.h3`
     text-align: justify;
