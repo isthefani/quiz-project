@@ -76,7 +76,8 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
             <Header conteudo={"Voltar ao menu"} path={"/"}/>
             <BoxCenter>
                 <h2 style={{
-                    marginTop: 20
+                    marginTop: 20,
+                    textAlign: "justify"
                 }}>{quiz[num].perg}</h2>      
 
             </BoxCenter>
@@ -87,7 +88,9 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                     color: "#8591E8", 
                     fontSize: 16, 
                     marginBottom: 20,
-                    textAlign: 'justify'}}>
+                    marginTop: 10
+                    //textAlign: "justify"
+                }}>
                 Pergunta: {num+1} / {quiz.length}
                 </h2>     
             </BoxCenter>
@@ -214,7 +217,10 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                         paddingRight: 10,
                         borderStyle: "groove",
                         borderWidth: 2,
-                        borderColor: "#8591E8"
+                        borderColor: "#8591E8",
+                        '@media (max-width: 768px)': {
+                          width: 200,
+                        },
                     }}>
 
                         <BoxCenter>

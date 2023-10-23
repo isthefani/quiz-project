@@ -33,7 +33,7 @@ export const Container = styled.div`
     border-radius: 40px;
     height: 85vh; /*--MUDAR*/
 
-    @media (max-width: 1236.5px) {
+    @media (max-width: 1236px) {
         height: unset;
     }
 `  
@@ -44,8 +44,20 @@ export const Container2 = styled.div`
     padding: 50px 0px; /*--MUDAR*/
     border-radius: 40px;
     height: 85vh; /*--MUDAR*/
-    @media (max-width: 1236.5px) {
+
+    @media (max-width: 1236px) {
         height: unset;
-        padding: 25px 0px 0px 0px;
+        padding: 25px 0px;
+    }
+
+    @media (max-width 770px) {
+        padding: unset;
     }
 `  
+export const Titulo = styled.h3`
+    text-align: justify;
+
+    @media (max-width: 344px) {
+        padding: 10px
+    }
+`

@@ -10,9 +10,18 @@ const Button = styled.button`
   margin: 10px; /*--MUDAR*/
   width: 30rem; /*--MUDAR*/
   cursor: pointer;
+  min-width: unset;
+
   &:hover{
     background-color: #e9e8e8;
   }
+
+  @media (max-width: 540px) {
+    width: 10rem;
+    min-width: 90%;
+  }
+
+  /*Não quer funcionar*/
 `;
 ///////////////////////////////
 
