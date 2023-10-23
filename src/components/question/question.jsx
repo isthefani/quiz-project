@@ -77,7 +77,8 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
             <BoxCenter>
                 <h2 style={{
                     marginTop: 20,
-                    textAlign: "justify"
+                    textAlign: "justify",
+                    width: "100%"
                 }}>{quiz[num].perg}</h2>      
 
             </BoxCenter>
@@ -88,8 +89,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                     color: "#8591E8", 
                     fontSize: 16, 
                     marginBottom: 20,
-                    marginTop: 10
-                    //textAlign: "justify"
+                    marginTop: 10,
                 }}>
                 Pergunta: {num+1} / {quiz.length}
                 </h2>     
@@ -128,12 +128,12 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                 :
                 ""}
                 {(quiz.length != (num + 1)) ?                 
-                <ButtonNext onClick={proximaPerg}  value={"Próximo"}/>
+                <ButtonNext onClick={proximaPerg} value={"Próximo"}/>
                 :
                 ""}
             </BoxCenter>
 
-            <BoxCenter>
+            <BoxCenter style={{ flexWrap: "nowrap", width: "100%"}}>
                 {quiz.map((item, index) => {
                     return(
                         <>
