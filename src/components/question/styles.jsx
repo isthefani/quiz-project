@@ -18,12 +18,22 @@ export const BoxCenter = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-`   
+
+    @media (min-width: 952px) and (max-width: 1236px) {
+        width: 70%;
+    }
+`    
 export const BoxCenterVert = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-`   
+`
+//evitar erros//
+export const BoxCenterResp = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`    
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -32,6 +42,10 @@ export const Container = styled.div`
     padding: 30px; /*--MUDAR*/
     border-radius: 40px;
     height: 85vh; /*--MUDAR*/
+
+    @media (max-width: 1099px) {
+        height: unset;
+    }
 `  
 export const Container2 = styled.div`
     display: flex;
@@ -40,4 +54,16 @@ export const Container2 = styled.div`
     padding: 50px 0px; /*--MUDAR*/
     border-radius: 40px;
     height: 85vh; /*--MUDAR*/
+
+    @media (max-width: 1236px) {
+        height: unset;
+        padding: unset;
+    }
 `  
+export const Titulo = styled.h3`
+    text-align: justify;
+
+    @media (max-width: 344px) {
+        padding: 10px
+    }
+`

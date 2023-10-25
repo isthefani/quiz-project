@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "../../components/header/header";
-import {BoxCenter, Container, Container2 } from "../../components/question/styles";
+import {BoxCenter, Container, Container2, Titulo } from "../../components/question/styles";
 import Categories from '../../components/divHomeCategory/categories';
 import { SiReact } from "react-icons/si";
 import { SiJavascript } from "react-icons/si";
@@ -8,6 +8,7 @@ import { SiHtml5 } from "react-icons/si";
 import { SiCss3 } from "react-icons/si";
 import ButtonHome from '../../components/buttons/buttonHome';
 import './style.css'
+import HeaderHomer from "../../components/header/headerHome";
 
 export const indexMenu = [0]
 
@@ -26,10 +27,10 @@ const Home = () => {
     <>
     <div id='home'>
       <Container> 
-        <Header conteudo={"Sobre"}/>
+        <HeaderHomer conteudo={"Sobre"}/>
 
         <Container2>
-          <h3 style={{textAlign: 'justify'}}>Escolha uma das opções abaixo e veja quantas perguntas você consegue responder corretamente entre 6 alternativas:</h3>
+          <Titulo>Escolha uma das opções abaixo e veja quantas perguntas você consegue responder corretamente entre 6 alternativas:</Titulo>
           
           <BoxCenter style={{marginTop: -20}}>
             <Categories 

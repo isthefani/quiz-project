@@ -10,7 +10,7 @@ const HeaderStyle = styled.div`
 
     @media (max-width: 440px) {
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
     }
 `;
 
@@ -25,12 +25,12 @@ export const Link = styled.a`
     &:hover{
         background-color: #ebecf4;
     }
-    @media (max-width: 350px) {
+     /*@media (max-width: 350px) {
         margin-top: 5px;
-    }
-    /*@media (max-width: 350px) {
-      display: none;  
     }*/
+    @media (max-width: 440px) {
+      display: none;  
+    }
 `
 
 const Logo = styled.img`
@@ -39,11 +39,11 @@ const Logo = styled.img`
 
 ///////////////////////////////
 
-export default function Header({conteudo, path}) {
+export default function HeaderHomer({conteudo, path}) {
     return(
         <HeaderStyle>
             <Logo src="/logoQuiz.png"></Logo>
-            {/* <Link href={path}>{conteudo}</Link> */}
+            <Link href={path}>{conteudo}</Link>
         </HeaderStyle>
     )
 }

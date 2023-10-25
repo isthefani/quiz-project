@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ButtonQuestion from "../buttons/buttonQuestion";
 import ButtonNext from "../buttons/buttonNext";
-import { ContPerg, BoxCenter, BoxPerg, Container } from "./styles";
+import { ContPerg, BoxCenter, BoxPerg, Container, BoxCenterResp } from "./styles";
 import Header from "../header/header";
 import { Link } from "../header/header";
 
@@ -76,7 +76,9 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
             <Header conteudo={"Voltar ao menu"} path={"/"}/>
             <BoxCenter>
                 <h2 style={{
-                    marginTop: 20
+                    marginTop: 20,
+                    textAlign: "justify",
+                    width: "100%"
                 }}>{quiz[num].perg}</h2>      
 
             </BoxCenter>
@@ -87,7 +89,8 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                     color: "#8591E8", 
                     fontSize: 16, 
                     marginBottom: 20,
-                    textAlign: 'justify'}}>
+                    marginTop: 10,
+                }}>
                 Pergunta: {num+1} / {quiz.length}
                 </h2>     
             </BoxCenter>
@@ -125,12 +128,12 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                 :
                 ""}
                 {(quiz.length != (num + 1)) ?                 
-                <ButtonNext onClick={proximaPerg}  value={"Próximo"}/>
+                <ButtonNext onClick={proximaPerg} value={"Próximo"}/>
                 :
                 ""}
             </BoxCenter>
 
-            <BoxCenter>
+            <BoxCenter style={{ flexWrap: "nowrap", width: "100%"}}>
                 {quiz.map((item, index) => {
                     return(
                         <>
@@ -198,7 +201,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                     Acertos: {acertos} / {quiz.length}
                 </h2>     
             </BoxCenter>
-            <BoxCenter style={{flexDirection: "row"}}>
+            <BoxCenterResp style={{flexDirection: "row"}}>
             {respoFinais.map((item) => {
                 return(
                     <>
@@ -214,7 +217,10 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                         paddingRight: 10,
                         borderStyle: "groove",
                         borderWidth: 2,
-                        borderColor: "#8591E8"
+                        borderColor: "#8591E8",
+                        '@media (max-width: 768px)': {
+                          width: 200,
+                        },
                     }}>
 
                         <BoxCenter>
@@ -249,7 +255,7 @@ export default function QuestJs({resp, respoFinais, corretos, quiz}){
                     </>
                 )
             })}
-            </BoxCenter>
+            </BoxCenterResp>
 
             <Link href="/" style={{
                 color: "#fff", 
